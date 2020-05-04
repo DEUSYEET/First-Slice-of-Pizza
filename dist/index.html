@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div id="pizza">
-        <div class="toppingButton" value="test"></div>
+        <div id="summary">
+            <div id="size"></div>
+            <div id="list"></div>
+        </div>
+
+        <div class="sizeButton" value="personal">Personal</div>
+        <div class="sizeButton" value="medium">Medium</div>
+        <div class="sizeButton" value="large">Large</div>
+        <div class="sizeButton" value="xlarge">Xtra Large</div>
+        <p>Chicken</p>
+        <div class="toppingButtons" value="Chicken">
+            <div class="innerToppingButton" value="left">Left
+                <div class="innerAmountButton" value="extra">Ex</div>
+                <div class="innerAmountButton" value="regular">Reg</div>
+            </div>
+            <div class="innerToppingButton" value="full">Full
+                <div class="innerAmountButton" value="extra">Ex</div>
+                <div class="innerAmountButton" value="regular">Reg</div>
+            </div>
+            <div class="innerToppingButton" value="right">Right
+                <div class="innerAmountButton" value="extra">Ex</div>
+                <div class="innerAmountButton" value="regular">Reg</div>
+            </div>
+        </div>
     </div>
     <div id="test"></div>
     <script src="main.js"></script>
 </body>
+
 </html>
