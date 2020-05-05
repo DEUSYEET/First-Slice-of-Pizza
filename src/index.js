@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const element = sizeButtons[index];
         element.onclick = () => {
             changeSize(element);
+            
         }
     }
 })
@@ -28,8 +29,15 @@ const addTopping = (button) => {
     var side = button.parentNode.attributes.value.nodeValue;
     var amount = button.attributes.value.nodeValue;
     var image = pizza.toppings[topping].images[size][side][amount]
-    document.getElementById("list").innerHTML = document.getElementById("list").innerHTML.concat("<br>" + pizza.toppings[topping].name + " " + side + " " + amount);
-    document.getElementById("test").innerHTML = "<img src=\"" + image + "\">"
+    
+    if (button.classList.contains('selected')){
+        button.classList.remove('selected')
+        document.getElementById("list").innerHTML = document.getElementById("list").innerHTML.replace("<br>" + pizza.toppings[topping].name + " " + side + " " + amount, "");
+    }else{   
+        button.classList.add('selected');
+        document.getElementById("list").innerHTML = document.getElementById("list").innerHTML.concat("<br>" + pizza.toppings[topping].name + " " + side + " " + amount);
+        document.getElementById("test").innerHTML = "<img src=\"" + image + "\">"
+    }
 }
 
 const changeSize = (button) => {
