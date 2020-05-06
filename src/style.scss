@@ -1,5 +1,25 @@
+#pizza{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100vh;
+}
+#sizes{
+    width:10%;
+}
+#toppings{
+    width: 25%;
+    overflow: scroll;
+}
+#pizzaCanvas{
+    width: 50%;
+}
+#summary{
+    width: 15%;
+}
+
 .toppingButtons{
-    width: 10%;
+    width: 100%;
     height: 100px;
     background-color: blue;
     display: flex;
@@ -17,4 +37,5 @@
 }
 .sizeButton{
     border: 1px solid black;
+    height: 25%;
 }

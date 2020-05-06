@@ -7,18 +7,10 @@ var sizeButtons = document.getElementsByClassName("sizeButton");
 var size = "personal"
 document.getElementById("size").innerHTML = size;
 
-var c = document.getElementById("myCanvas");
-var img = document.createElement('IMG');
-img.src = pizza.toppings.Bacon.images.large.full.extra;
-img.style.display = "none";
-document.getElementById('pizza').appendChild(img)
+var c = document.getElementById("pizzaCanvas");
+var ctx = c.getContext("2d");
+var toppingsList = ["./ImagesPizza/PizzaSizes/Personal/Crust/CrustPersonal.webp", "./ImagesPizza/PizzaSizes/Personal/Crust/MarinaraPersonal.webp", "./ImagesPizza/PizzaSizes/Personal/Crust/CheesePersonal.webp"];
 
-
-img.onload = () =>{
-    var ctx = c.getContext("2d");
-    console.log(img)
-    ctx.drawImage(img, 50,50,100,100);
-}
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -37,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
             changeSize(element);
         }
     }
+
+    drawCanvas();
 })
 
 const addTopping = (button) => {
@@ -44,21 +38,51 @@ const addTopping = (button) => {
     var side = button.parentNode.attributes.value.nodeValue;
     var amount = button.attributes.value.nodeValue;
     var image = pizza.toppings[topping].images[size][side][amount]
-    
-    if (button.classList.contains('selected')){
+
+    if (button.classList.contains('selected')) {
         //remove
         button.classList.remove('selected')
         document.getElementById("list").innerHTML = document.getElementById("list").innerHTML.replace("<br>" + pizza.toppings[topping].name + " " + side + " " + amount, "");
-    }else{  
+        var i =  toppingsList.findIndex((val,index,arr)=>{
+            return val === image;
+        })
+        toppingsList.splice(i,1);
+    } else {
         //add 
         button.classList.add('selected');
         document.getElementById("list").innerHTML = document.getElementById("list").innerHTML.concat("<br>" + pizza.toppings[topping].name + " " + side + " " + amount);
-        document.getElementById("test").innerHTML = "<img src=\"" + image + "\">"
+        toppingsList.push(image);
     }
+
+    drawCanvas();
 }
 
 const changeSize = (button) => {
     var sizeVal = button.attributes.value.nodeValue;
+    toppingsList.splice(0,3);
     size = sizeVal;
+    toppingsList.unshift(pizza.crusts[size].cheese);
+    toppingsList.unshift(pizza.crusts[size].sauce);
+    toppingsList.unshift(pizza.crusts[size].crust);
     document.getElementById("size").innerHTML = size;
+    drawCanvas();
+}
+
+
+const drawCanvas = () => {
+    ctx.clearRect(0,0,10000,10000)
+    toppingsList.forEach(element => {
+        draw(element);
+    });
+    console.log(toppingsList);
+}
+const draw = element => {
+    var img = document.createElement('IMG');
+    img.src = element;
+    img.style.display = "none";
+    document.getElementById('pizza').appendChild(img)
+    img.onload = () => {
+        ctx.drawImage(img,0,0);
+    }
+    document.getElementById('pizza').removeChild(img);
 }
