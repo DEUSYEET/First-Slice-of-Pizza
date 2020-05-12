@@ -17,17 +17,17 @@ document.addEventListener('DOMContentLoaded', () => {
     //topping buttons
     for (let index = 0; index < toppingButtons.length; index++) {
         const element = toppingButtons[index];
-        element.onclick = () => {
-            addTopping(element)
-        }
+        element.addEventListener("click", ()=>{
+            addTopping(element);
+        })
     }
 
     //size buttons
     for (let index = 0; index < sizeButtons.length; index++) {
         const element = sizeButtons[index];
-        element.onclick = () => {
+        element.addEventListener("click",() => {
             changeSize(element);
-        }
+        })
     }
 
     drawCanvas();
