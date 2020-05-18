@@ -621,26 +621,37 @@ export const pizza = {
             }
         }
     },
-    'crusts':{
-        'personal':{
-            'cheese':'./ImagesPizza/PizzaSizes/Personal/Crust/CheesePersonal.webp',
-            'crust':'./ImagesPizza/PizzaSizes/Personal/Crust/CrustPersonal.webp',
-            'sauce':'./ImagesPizza/PizzaSizes/Personal/Crust/MarinaraPersonal.webp'
+    'crusts': {
+        'personal': {
+            'price': 10,
+            'cheese': './ImagesPizza/PizzaSizes/Personal/Crust/CheesePersonal.webp',
+            'crust': './ImagesPizza/PizzaSizes/Personal/Crust/CrustPersonal.webp',
+            'sauce': './ImagesPizza/PizzaSizes/Personal/Crust/MarinaraPersonal.webp'
         },
-        'large':{
-            'cheese':'./ImagesPizza/PizzaSizes/PizzaLarge/Crust/CheeseLarge.webp',
-            'crust':'./ImagesPizza/PizzaSizes/PizzaLarge/Crust/CrustLarge.webp',
-            'sauce':'./ImagesPizza/PizzaSizes/PizzaLarge/Crust/SauceLarge.webp'
+        'medium': {
+            'price': 12,
+            'cheese': './ImagesPizza/PizzaSizes/PizzaMedium/Crust/CheeseMedium.webp',
+            'crust': './ImagesPizza/PizzaSizes/PizzaMedium/Crust/CrustMedium.webp',
+            'sauce': './ImagesPizza/PizzaSizes/PizzaMedium/Crust/SauceMedium.webp'
         },
-        'medium':{
-            'cheese':'./ImagesPizza/PizzaSizes/PizzaMedium/Crust/CheeseMedium.webp',
-            'crust':'./ImagesPizza/PizzaSizes/PizzaMedium/Crust/CrustMedium.webp',
-            'sauce':'./ImagesPizza/PizzaSizes/PizzaMedium/Crust/SauceMedium.webp'
+        'large': {
+            'price': 14,
+            'cheese': './ImagesPizza/PizzaSizes/PizzaLarge/Crust/CheeseLarge.webp',
+            'crust': './ImagesPizza/PizzaSizes/PizzaLarge/Crust/CrustLarge.webp',
+            'sauce': './ImagesPizza/PizzaSizes/PizzaLarge/Crust/SauceLarge.webp'
         },
-        'xlarge':{
-            'cheese':'./ImagesPizza/PizzaSizes/PizzaXLarge/Crust/CheeseXLarge.webp',
-            'crust':'./ImagesPizza/PizzaSizes/PizzaXLarge/Crust/CrustXLarge.webp',
-            'sauce':'./ImagesPizza/PizzaSizes/PizzaXLarge/Crust/SauceXLarge.webp'
+        'xlarge': {
+            'price': 15,
+            'cheese': './ImagesPizza/PizzaSizes/PizzaXLarge/Crust/CheeseXLarge.webp',
+            'crust': './ImagesPizza/PizzaSizes/PizzaXLarge/Crust/CrustXLarge.webp',
+            'sauce': './ImagesPizza/PizzaSizes/PizzaXLarge/Crust/SauceXLarge.webp'
         }
+    },
+    'prebuilts': {
+        'vegan': ["./ImagesPizza/PizzaSizes/PizzaLarge/Crust/CrustLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Crust/SauceLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Crust/CheeseLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/SpinachExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/MushroomExtraLarge.webp"],
+        'meat': ["./ImagesPizza/PizzaSizes/PizzaLarge/Crust/CrustLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Crust/SauceLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Crust/CheeseLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/BaconExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/BeefExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/ChickenExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/HamExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/ItalianSausageExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/MeatballExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/PepperoniExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/PorkExtraLarge.webp"],
+        'italian': ["./ImagesPizza/PizzaSizes/PizzaMedium/Crust/CrustMedium.webp", "./ImagesPizza/PizzaSizes/PizzaMedium/Crust/SauceMedium.webp", "./ImagesPizza/PizzaSizes/PizzaMedium/Crust/CheeseMedium.webp", "./ImagesPizza/PizzaSizes/PizzaMedium/Toppings/ItalianSausageExtraMedium.webp", "./ImagesPizza/PizzaSizes/PizzaMedium/Toppings/MeatballRegularMedium.webp"],
+        'classic': ["./ImagesPizza/PizzaSizes/PizzaMedium/Crust/CrustMedium.webp", "./ImagesPizza/PizzaSizes/PizzaMedium/Crust/SauceMedium.webp", "./ImagesPizza/PizzaSizes/PizzaMedium/Crust/CheeseMedium.webp", "./ImagesPizza/PizzaSizes/PizzaMedium/Toppings/PepperoniRegularMedium.webp"],
+        'many': ["./ImagesPizza/PizzaSizes/PizzaXLarge/Crust/CrustXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Crust/SauceXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Crust/CheeseXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/BeefRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/ChickenRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/HamRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/ItalianSausageRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/MeatballRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/MushroomRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/PepperoniRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/SpinachRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/PorkRegularXLarge.webp"],
     }
 }

@@ -4,11 +4,14 @@ import {
 } from './pizza.js';
 
 var prebuiltMenu = document.getElementById("prebuiltMenu")
-var buildMenu  = document.getElementById("buildMenu");
+var buildMenu = document.getElementById("buildMenu");
 var toppingButtons = document.getElementsByClassName("innerAmountButton");
 var sizeButtons = document.getElementsByClassName("sizeButton");
+var list = document.getElementById("list");
 var size = "personal"
-document.getElementById("size").innerHTML = size;
+var toppingCount = 0;
+var price = 10;
+document.getElementById("size").innerHTML = size + "<br> Price: $" + price;
 
 var c = document.getElementById("pizzaCanvas");
 var ctx = c.getContext("2d");
@@ -34,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
+
     drawCanvas();
 })
 
@@ -42,42 +46,61 @@ const addTopping = (button) => {
     var side = button.parentNode.attributes.value.nodeValue;
     var amount = button.attributes.value.nodeValue;
     var image = pizza.toppings[topping].images[size][side][amount]
+    var toppingClass = button.parentNode.parentNode.classList;
 
-    if (button.classList.contains('selected')) {
+    if (toppingClass.contains('selected')) {
         //remove
-        button.classList.remove('selected')
-        document.getElementById("list").innerHTML = document.getElementById("list").innerHTML.replace("<br>" + pizza.toppings[topping].name + " " + side + " " + amount, "");
+        toppingClass.remove('selected')
+        list.innerHTML = list.innerHTML.replace("<br>" + pizza.toppings[topping].name, "");
         var i = toppingsList.findIndex((val, index, arr) => {
             return val === image;
         })
         toppingsList.splice(i, 1);
+        if(amount == "extra"){
+            toppingCount -= 2;
+        } else{
+            toppingCount-=1;
+        }
+
     } else {
         //add 
-        button.classList.add('selected');
-        document.getElementById("list").innerHTML = document.getElementById("list").innerHTML.concat("<br>" + pizza.toppings[topping].name + " " + side + " " + amount);
+        toppingClass.add('selected');
+        list.innerHTML = list.innerHTML.concat("<br>" + pizza.toppings[topping].name);
         toppingsList.push(image);
-    }
+        if(amount == "extra"){
+            toppingCount += 2;
+        } else{
+            toppingCount+=1;
+        }
 
+    }
+    // console.log(toppingsList);
+    changePrice();
     drawCanvas();
 }
 
 const changeSize = (button) => {
     var sizeVal = button.attributes.value.nodeValue;
+
     toppingsList.splice(0, toppingsList.length);
-    document.getElementById("list").innerHTML = ""
+    list.innerHTML = ""
     size = sizeVal;
-    toppingsList.unshift(pizza.crusts[size].cheese);
-    toppingsList.unshift(pizza.crusts[size].sauce);
+    // toppingsList.unshift(pizza.crusts[size].cheese);
+    // toppingsList.unshift(pizza.crusts[size].sauce);
     toppingsList.unshift(pizza.crusts[size].crust);
     document.getElementById("size").innerHTML = size;
+    changePrice();
     drawCanvas();
 }
 
 
 const drawCanvas = () => {
     ctx.clearRect(0, 0, 10000, 10000)
+    var i = 0;
+    
     toppingsList.forEach(element => {
-        draw(element);
+        setInterval(draw(element),1000)
+        // draw(element);
     });
     console.log(toppingsList);
 }
@@ -113,4 +136,20 @@ const draw = element => {
         // ctx.stroke();
     }
     document.getElementById('pizza').removeChild(img);
+}
+
+
+const changePrice = () =>{
+    price = pizza.crusts[size].price;
+    var specialDeal = "";
+    if(toppingCount>1&&toppingCount<5){
+        price+=toppingCount;
+        specialDeal = "";
+    }
+    if(toppingCount>=5){
+        price+=3+(toppingCount-5);
+        specialDeal = "<br> 5 Topping for $3 Deal";
+    }
+    console.log(toppingCount)
+    document.getElementById("size").innerHTML = size + "<br> Price: $" + price+specialDeal;
 }
