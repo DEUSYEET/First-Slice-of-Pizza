@@ -10,168 +10,178 @@
 <body>
 
     <div id="pizza">
-        <canvas id="pizzaCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
-            Your browser does not support the HTML5 canvas tag.
-        </canvas>
-        <div id="summary">
-            <div id="size"></div>
-            <div id="list"></div>
+        <div id="prebuiltMenu">
+            <div id="pre1" class="prebuiltButton">1</div>
+            <div id="pre2" class="prebuiltButton">2</div>
+            <div id="pre3" class="prebuiltButton">3</div>
+            <div id="pre4" class="prebuiltButton">4</div>
+            <div id="pre5" class="prebuiltButton">5</div>
+            <div id="selfBuild" class="prebuiltButton">custom</div>
         </div>
-        <div id="sizes">
-            <div class="sizeButton" value="personal">Personal</div>
-            <div class="sizeButton" value="medium">Medium</div>
-            <div class="sizeButton" value="large">Large</div>
-            <div class="sizeButton" value="xlarge">Xtra Large</div>
-        </div>
-        <div id="toppings">
-            <p>Bacon</p>
-            <div class="toppingButtons" value="Bacon">
-                <div class="innerToppingButton" value="left">Left
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-                <div class="innerToppingButton" value="full">Full
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-                <div class="innerToppingButton" value="right">Right
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
+        <div id="buildMenu">
+            <canvas id="pizzaCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
+                Your browser does not support the HTML5 canvas tag.
+            </canvas>
+            <div id="summary">
+                <div id="size"></div>
+                <div id="list"></div>
             </div>
-            <p>Beef</p>
-            <div class="toppingButtons" value="Beef">
-                <div class="innerToppingButton" value="left">Left
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-                <div class="innerToppingButton" value="full">Full
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-                <div class="innerToppingButton" value="right">Right
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
+            <div id="sizes">
+                <div class="sizeButton" value="personal">Personal</div>
+                <div class="sizeButton" value="medium">Medium</div>
+                <div class="sizeButton" value="large">Large</div>
+                <div class="sizeButton" value="xlarge">Xtra Large</div>
             </div>
-            <p>Chicken</p>
-            <div class="toppingButtons" value="Chicken">
-                <div class="innerToppingButton" value="left">Left
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
+            <div id="toppings">
+                <p>Bacon</p>
+                <div class="toppingButtons" value="Bacon">
+                    <div class="innerToppingButton" value="left">Left
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="full">Full
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="right">Right
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
                 </div>
-                <div class="innerToppingButton" value="full">Full
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
+                <p>Beef</p>
+                <div class="toppingButtons" value="Beef">
+                    <div class="innerToppingButton" value="left">Left
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="full">Full
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="right">Right
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
                 </div>
-                <div class="innerToppingButton" value="right">Right
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
+                <p>Chicken</p>
+                <div class="toppingButtons" value="Chicken">
+                    <div class="innerToppingButton" value="left">Left
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="full">Full
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="right">Right
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
                 </div>
-            </div>
-            <p>Ham</p>
-            <div class="toppingButtons" value="Ham">
-                <div class="innerToppingButton" value="left">Left
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
+                <p>Ham</p>
+                <div class="toppingButtons" value="Ham">
+                    <div class="innerToppingButton" value="left">Left
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="full">Full
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="right">Right
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
                 </div>
-                <div class="innerToppingButton" value="full">Full
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
+                <p>Italian Sausage</p>
+                <div class="toppingButtons" value="ItalianSausage">
+                    <div class="innerToppingButton" value="left">Left
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="full">Full
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="right">Right
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
                 </div>
-                <div class="innerToppingButton" value="right">Right
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
+                <p>Meatball</p>
+                <div class="toppingButtons" value="Meatball">
+                    <div class="innerToppingButton" value="left">Left
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="full">Full
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="right">Right
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
                 </div>
-            </div>
-            <p>Italian Sausage</p>
-            <div class="toppingButtons" value="ItalianSausage">
-                <div class="innerToppingButton" value="left">Left
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
+                <p>Mushroom</p>
+                <div class="toppingButtons" value="Mushroom">
+                    <div class="innerToppingButton" value="left">Left
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="full">Full
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="right">Right
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
                 </div>
-                <div class="innerToppingButton" value="full">Full
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
+                <p>Pepperoni</p>
+                <div class="toppingButtons" value="Pepperoni">
+                    <div class="innerToppingButton" value="left">Left
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="full">Full
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="right">Right
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
                 </div>
-                <div class="innerToppingButton" value="right">Right
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
+                <p>Pork</p>
+                <div class="toppingButtons" value="Pork">
+                    <div class="innerToppingButton" value="left">Left
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="full">Full
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="right">Right
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
                 </div>
-            </div>
-            <p>Meatball</p>
-            <div class="toppingButtons" value="Meatball">
-                <div class="innerToppingButton" value="left">Left
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-                <div class="innerToppingButton" value="full">Full
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-                <div class="innerToppingButton" value="right">Right
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-            </div>
-            <p>Mushroom</p>
-            <div class="toppingButtons" value="Mushroom">
-                <div class="innerToppingButton" value="left">Left
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-                <div class="innerToppingButton" value="full">Full
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-                <div class="innerToppingButton" value="right">Right
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-            </div>
-            <p>Pepperoni</p>
-            <div class="toppingButtons" value="Pepperoni">
-                <div class="innerToppingButton" value="left">Left
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-                <div class="innerToppingButton" value="full">Full
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-                <div class="innerToppingButton" value="right">Right
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-            </div>
-            <p>Pork</p>
-            <div class="toppingButtons" value="Pork">
-                <div class="innerToppingButton" value="left">Left
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-                <div class="innerToppingButton" value="full">Full
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-                <div class="innerToppingButton" value="right">Right
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-            </div>
-            <p>Spinach</p>
-            <div class="toppingButtons" value="Spinach">
-                <div class="innerToppingButton" value="left">Left
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-                <div class="innerToppingButton" value="full">Full
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
-                </div>
-                <div class="innerToppingButton" value="right">Right
-                    <div class="innerAmountButton" value="extra">Ex</div>
-                    <div class="innerAmountButton" value="regular">Reg</div>
+                <p>Spinach</p>
+                <div class="toppingButtons" value="Spinach">
+                    <div class="innerToppingButton" value="left">Left
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="full">Full
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
+                    <div class="innerToppingButton" value="right">Right
+                        <div class="innerAmountButton" value="extra">Ex</div>
+                        <div class="innerAmountButton" value="regular">Reg</div>
+                    </div>
                 </div>
             </div>
         </div>

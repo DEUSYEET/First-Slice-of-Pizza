@@ -1,9 +1,14 @@
-#pizza{
+// #pizza{
+
+// }
+#buildMenu{
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 100vh;
 }
+
+
 #sizes{
     width:10%;
 }
@@ -13,6 +18,7 @@
 }
 #pizzaCanvas{
     width: 50%;
+    height: 100%;
 }
 #summary{
     width: 15%;
