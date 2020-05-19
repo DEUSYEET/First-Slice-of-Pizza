@@ -1,0 +1,60 @@
+.toppingButton {
+  width: 10%;
+  height: 100px;
+  background-color: blue;
+}
+
+body, #pizza{
+  display: flex;
+}
+
+img{
+  max-width: 500px;
+  max-height: 500px;
+  border: solid 1px #777;
+}
+
+#menuScreen{
+  display: none;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+/* .images, .panelImage, .panelButtonLeft, .panelButtonMiddle, .panelButtonRight, .pizzaSize, #customPizza */
+
+#customPizzaScreen{
+  display: flex;
+  flex-direction: column;
+}
+
+.images{
+  flex: 1;
+}
+
+#row1, #row2{
+  display: flex;
+  flex-direction: row;
+}
+
+.page1panels{
+  flex: 1;
+}
+
+#columns{
+  display: flex;
+  flex-direction: row;
+}
+
+.pizzaSize{
+  max-width: 180px;
+}
+
+.panelImage{
+  max-width: 180px;
+  max-height: 180px;
+}
+
+.panelButtonLeft, .panelButtonMiddle, .panelButtonRight{
+  max-width: 20px;
+  max-height: 20px;
+}
