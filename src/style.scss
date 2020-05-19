@@ -1,6 +1,9 @@
-// #pizza{
+#pizza{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
 
-// }
 #buildMenu{
     display: flex;
     flex-direction: row;
@@ -8,32 +11,82 @@
     height: 100vh;
 }
 
-
-#sizes{
-    width:10%;
-}
-#toppings{
-    width: 25%;
-    overflow: scroll;
-}
-#pizzaCanvas{
-    width: 50%;
-    height: 100%;
-}
 #summary{
-    width: 15%;
+    display: flex;
+    flex:0.5;
+    flex-direction: column;
+    padding-top: 4px;
+    padding-bottom: 14px;
+    padding-right: 14px;
+    padding-left: 14px;
+}
+
+#size{
+    width: fit-content;
+    border-bottom: solid 2px #000;
+}
+
+#toppings{
+    display: flex;
+    flex:2;
+    flex-direction: row;
+}
+
+#meatToppings{
+    flex: 0.5;
+    padding-top: 4px;
+    padding-bottom: 14px;
+    padding-right: 14px;
+    padding-left: 14px;
+}
+
+#veggiToppings{
+    flex: 0.5;
+    padding-top: 4px;
+    padding-bottom: 14px;
+    padding-right: 14px;
+    padding-left: 14px;
+}
+
+.topHeaders{
+    width: fit-content;
+    border-bottom: solid 2px #000;
+}
+
+#pizzaCanvas{
+    display: flex;
+    width: 600px;
+    height: 600px;
+}
+
+#list{
+    display: flex;
+    flex-direction: column;
+}
+#sizes{
+    padding-top: 4px;
+    padding-bottom: 14px;
+    padding-right: 14px;
+    padding-left: 14px;
+    flex: 0.5;
+}
+
+#sizes h2{
+    width: fit-content;
+    border-bottom: 2px solid #000;
+}
+
+#summary{
+    display: flex;
 }
 
 .toppingButtons{
-    width: 100%;
-    height: 100px;
-    background-color: blue;
     display: flex;
+    flex-direction: column;
 }
 .innerToppingButton{
-    width: 33%;
-    height: 100%;
-    background-color: red;
+    width: 70px;
+    height: 70%;
     border: 1px solid black;
 }
 .innerAmountButton{
@@ -41,7 +94,41 @@
     height: 40%;
     width: 100%;
 }
-.sizeButton{
-    border: 1px solid black;
-    height: 25%;
+
+.checkboxTopping{
+    height: 15px;
+    cursor: pointer;
+    width: 15px;
+    display: none;
+}
+
+.checkboxLabel{
+    font-size: 16pt;
+    cursor: pointer;
+}
+
+.checkboxLabel:hover{
+    color: #444;
+    font-size: 17pt;
+}
+#orderButton{
+    width: 100px;
+    height: 60px;
+    font-weight: bold;
+    background-color:rgb(255, 116, 52);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+#thank{
+    display: none;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+@media all and (max-width: 950px){
+    #buildMenu{
+        flex-direction: column;
+        // flex-wrap:wrap;
+    }
 }

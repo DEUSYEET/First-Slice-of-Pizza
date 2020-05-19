@@ -1,155 +1,220 @@
-import './style.scss';
-import {
-    pizza
-} from './pizza.js';
+import "./style.scss";
+import { pizza } from "./pizzaOBJ.js";
+import { pizza_app } from "./pizza.js";
 
-var prebuiltMenu = document.getElementById("prebuiltMenu")
+
+document.getElementById("pizza").innerHTML = pizza_app;
+
+var prebuiltMenu = document.getElementById("prebuiltMenu");
 var buildMenu = document.getElementById("buildMenu");
-var toppingButtons = document.getElementsByClassName("innerAmountButton");
 var sizeButtons = document.getElementsByClassName("sizeButton");
+var thank = document.getElementById("thank");
+var order = document.getElementById("orderButton");
+
+var toppingAmountSelectors = document.getElementsByClassName(
+  "toppingAmountSelector"
+);
+var checkboxToppings = document.getElementsByClassName("checkboxTopping");
+var selectionForms = document.getElementsByClassName("selectionForm");
+var sideIcons = document.getElementsByClassName("sideIcon");
+
 var list = document.getElementById("list");
-var size = "personal"
+var total = document.getElementById("total");
+var size = "Personal";
+var amount = "regular";
+var side = "full";
+
 var toppingCount = 0;
-var price = 10;
-document.getElementById("size").innerHTML = size + "<br> Price: $" + price;
+var price = pizza.crusts[size].price;
+document.getElementById("size").innerHTML = size;
+total.innerHTML = `Total: $${price}`;
 
 var c = document.getElementById("pizzaCanvas");
 var ctx = c.getContext("2d");
-var toppingsList = ["./ImagesPizza/PizzaSizes/Personal/Crust/CrustPersonal.webp", "./ImagesPizza/PizzaSizes/Personal/Crust/MarinaraPersonal.webp", "./ImagesPizza/PizzaSizes/Personal/Crust/CheesePersonal.webp"];
+var toppingsList = [
+  "./ImagesPizza/PizzaSizes/Personal/Crust/CrustPersonal.webp",
+  "./ImagesPizza/PizzaSizes/Personal/Crust/MarinaraPersonal.webp",
+  "./ImagesPizza/PizzaSizes/Personal/Crust/CheesePersonal.webp",
+];
 
 // buildMenu.style.display = "none";
 prebuiltMenu.style.display = "none";
 
-document.addEventListener('DOMContentLoaded', () => {
-    //topping buttons
-    for (let index = 0; index < toppingButtons.length; index++) {
-        const element = toppingButtons[index];
-        element.addEventListener("click", () => {
-            addTopping(element);
-        })
-    }
+document.addEventListener("DOMContentLoaded", () => {
 
-    //size buttons
-    for (let index = 0; index < sizeButtons.length; index++) {
-        const element = sizeButtons[index];
-        element.addEventListener("click", () => {
-            changeSize(element);
-        })
-    }
+  thank.addEventListener("click",()=>{
+          buildMenu.style.display = "flex"
+          thank.style.display = "none"
 
-
-    drawCanvas();
+  })
+  order.addEventListener("click",()=>{
+    buildMenu.style.display = "none"
+    thank.style.display = "block"
+    setInterval(()=>{
+      buildMenu.style.display = "flex"
+      thank.style.display = "none"
+    },3000)
 })
 
-const addTopping = (button) => {
-    var topping = button.parentNode.parentNode.attributes.value.nodeValue;
-    var side = button.parentNode.attributes.value.nodeValue;
-    var amount = button.attributes.value.nodeValue;
-    var image = pizza.toppings[topping].images[size][side][amount]
-    var toppingClass = button.parentNode.parentNode.classList;
+  for (let index = 0; index < toppingAmountSelectors.length; index++) {
+    const element = toppingAmountSelectors[index];
+    const toppingElement = element.parentNode.parentNode.parentNode.childNodes.item(1);
 
-    if (toppingClass.contains('selected')) {
-        //remove
-        toppingClass.remove('selected')
-        list.innerHTML = list.innerHTML.replace("<br>" + pizza.toppings[topping].name, "");
-        var i = toppingsList.findIndex((val, index, arr) => {
-            return val === image;
-        })
-        toppingsList.splice(i, 1);
-        if(amount == "extra"){
-            toppingCount -= 2;
-        } else{
-            toppingCount-=1;
-        }
+    element.addEventListener("change", () => {
+      changeAmount(element.options[element.selectedIndex]);
+      addTopping(toppingElement.getAttribute("value"), toppingElement);
+      addTopping(toppingElement.getAttribute("value"), toppingElement);
+    });
+  }
 
+  for (let index = 0; index < selectionForms.length; index++) {
+    const element = selectionForms[index];
+    element.style.display = "none";
+  }
+
+  for (let index = 0; index < sideIcons.length; index++) {
+    const element = sideIcons[index];
+    const checkboxElement = element.parentNode.parentNode.parentNode.childNodes.item(
+      1
+    );
+    element.addEventListener("click", () => {
+      changeSide(element);
+      addTopping(element.getAttribute("value"), checkboxElement);
+    });
+  }
+
+  for (let index = 0; index < checkboxToppings.length; index++) {
+    const element = checkboxToppings[index];
+    const selectElement = element.parentNode.childNodes
+      .item(7)
+      .childNodes.item(1)
+      .childNodes.item(1);
+
+    element.addEventListener("change", () => {
+    //   console.log(element.getAttribute("value"));
+      if (element.checked) {
+        changeAmount(selectElement.options[selectElement.selectedIndex]);
+        side = "full";
+        selectionForms[index].style.display = "flex";
+        selectionForms[index].style.flexDirection = "column";
+        addTopping(element.getAttribute("value"), element);
+      } else {
+        selectionForms[index].style.display = "none";
+        addTopping(element.getAttribute("value"), element);
+      }
+    });
+  }
+
+  //size buttons
+  for (let index = 0; index < sizeButtons.length; index++) {
+    const element = sizeButtons[index];
+    element.addEventListener("click", () => {
+      changeSize(element);
+    });
+  }
+
+  drawCanvas();
+});
+
+const addTopping = (topping, button) => {
+  var image = pizza.toppings[topping].images[size][side][amount];
+  console.log(button.classList)
+  var toppingClass = button.classList;
+
+  if (toppingClass.contains("selected")) {
+    //remove
+    toppingClass.remove("selected");
+    list.innerHTML = list.innerHTML.replace(`<br>${pizza.toppings[topping].name}`, "");
+
+    console.log(toppingCount)
+
+    if (amount == "extra") {
+      toppingCount -= 2;
     } else {
-        //add 
-        toppingClass.add('selected');
-        list.innerHTML = list.innerHTML.concat("<br>" + pizza.toppings[topping].name);
-        toppingsList.push(image);
-        if(amount == "extra"){
-            toppingCount += 2;
-        } else{
-            toppingCount+=1;
-        }
-
+      toppingCount -= 1;
     }
-    // console.log(toppingsList);
-    changePrice();
-    drawCanvas();
-}
+
+    toppingsList.splice(toppingsList.indexOf(image), 1);
+  } else {
+    //add
+    toppingClass.add("selected");
+    list.innerHTML = list.innerHTML.concat(`<br>${pizza.toppings[topping].name}`);
+    toppingsList.push(image);
+    
+    console.log(toppingCount, amount)
+
+
+    if (amount == "extra") {
+      toppingCount += 2;
+    } else {
+      toppingCount += 1;
+    }
+  }
+  // console.log(toppingsList);
+  changePrice();
+  drawCanvas();
+};
+
+const changeSide = (element) => {
+  side = element.getAttribute("alt");
+};
+
+const changeAmount = (element) => {
+  amount = element.getAttribute("value");
+};
 
 const changeSize = (button) => {
-    var sizeVal = button.attributes.value.nodeValue;
+  var sizeVal = button.attributes.value.nodeValue;
 
-    toppingsList.splice(0, toppingsList.length);
-    list.innerHTML = ""
-    size = sizeVal;
-    // toppingsList.unshift(pizza.crusts[size].cheese);
-    // toppingsList.unshift(pizza.crusts[size].sauce);
-    toppingsList.unshift(pizza.crusts[size].crust);
-    document.getElementById("size").innerHTML = size;
-    changePrice();
-    drawCanvas();
-}
-
+  toppingsList.splice(0, toppingsList.length);
+  list.innerHTML = "";
+  size = sizeVal;
+  toppingsList.unshift(pizza.crusts[size].cheese);
+  toppingsList.unshift(pizza.crusts[size].sauce);
+  toppingsList.unshift(pizza.crusts[size].crust);
+  document.getElementById("size").innerHTML = size;
+  changePrice();
+  drawCanvas();
+};
 
 const drawCanvas = () => {
-    ctx.clearRect(0, 0, 10000, 10000)
-    var i = 0;
-    
-    toppingsList.forEach(element => {
-        setInterval(draw(element),1000)
-        // draw(element);
-    });
-    console.log(toppingsList);
-}
-const draw = element => {
-    var img = document.createElement('IMG');
-    img.src = element;
-    img.style.display = "none";
-    document.getElementById('pizza').appendChild(img)
-    img.onload = () => {
-        var x = c.width / 2 - img.width / 2;
-        var y = c.height / 2 - img.height / 2;
-        var startX = 0;
-        var startY = 0;
-        var width = img.width;
-        var clippedWidth = img.width / 2;
-        var height = img.height;
+  ctx.clearRect(0, 0, 10000, 10000);
+  var i = 0;
 
+  toppingsList.forEach((element) => {
+    setInterval(draw(element), 1000);
+    // draw(element);
+  });
+};
 
+const draw = (element) => {
+  var img = document.createElement("IMG");
+  img.src = element;
+  img.style.display = "none";
+  document.getElementById("pizza").appendChild(img);
+  img.onload = () => {
+    var x = c.width / 2 - img.width / 2;
+    var y = c.height / 2 - img.height / 2;
+    var width = img.width;
+    var height = img.height;
 
-        if (element.includes("Right")) {
-            ctx.drawImage(img, c.width - img.width, 0);
-        } else if (element.includes("Left")) {
-            ctx.drawImage(img, 0, 0);
-        } else {
-            // ctx.drawImage(img, startX, startY, clippedWidth, height, x, y, width, height);
-            ctx.drawImage(img, x, y, width, height);
-        }
+    ctx.drawImage(img, x, y, width, height);
+  };
+  document.getElementById("pizza").removeChild(img);
+};
 
-        // ctx.strokeStyle = '#f00';
-        // ctx.lineWidth = 2;
-        // ctx.beginPath()
-        // ctx.rect(x, y, width, height);
-        // ctx.stroke();
-    }
-    document.getElementById('pizza').removeChild(img);
-}
+const changePrice = () => {
+  price = pizza.crusts[size].price;
+  var specialDeal = "";
+  if (toppingCount >= 2 && toppingCount <= 4) {
+    price += toppingCount-1;
 
+    specialDeal = "";
+  } else if (toppingCount >= 5) {
+    price += 3 + (toppingCount - 5);
+    specialDeal = "<h3>5 Toppings for $3 Deal!</h3>";
+  }
 
-const changePrice = () =>{
-    price = pizza.crusts[size].price;
-    var specialDeal = "";
-    if(toppingCount>1&&toppingCount<5){
-        price+=toppingCount;
-        specialDeal = "";
-    }
-    if(toppingCount>=5){
-        price+=3+(toppingCount-5);
-        specialDeal = "<br> 5 Topping for $3 Deal";
-    }
-    console.log(toppingCount)
-    document.getElementById("size").innerHTML = size + "<br> Price: $" + price+specialDeal;
-}
+  document.getElementById("total").innerHTML =
+    "Price: $" + price + specialDeal;
+};
