@@ -111,24 +111,9 @@
     color: #444;
     font-size: 17pt;
 }
-#orderButton{
-    width: 100px;
-    height: 60px;
-    font-weight: bold;
-    background-color:rgb(255, 116, 52);
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-#thank{
-    display: none;
-    font-weight: bold;
-    text-align: center;
-    width: 100%;
-}
+
 @media all and (max-width: 950px){
-    #buildMenu{
-        flex-direction: column;
-        // flex-wrap:wrap;
+    #pizzaCanvas{
+        display: none;
     }
 }

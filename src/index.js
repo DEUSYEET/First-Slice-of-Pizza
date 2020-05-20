@@ -8,8 +8,6 @@ document.getElementById("pizza").innerHTML = pizza_app;
 var prebuiltMenu = document.getElementById("prebuiltMenu");
 var buildMenu = document.getElementById("buildMenu");
 var sizeButtons = document.getElementsByClassName("sizeButton");
-var thank = document.getElementById("thank");
-var order = document.getElementById("orderButton");
 
 var toppingAmountSelectors = document.getElementsByClassName(
   "toppingAmountSelector"
@@ -41,21 +39,6 @@ var toppingsList = [
 prebuiltMenu.style.display = "none";
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  thank.addEventListener("click",()=>{
-          buildMenu.style.display = "flex"
-          thank.style.display = "none"
-
-  })
-  order.addEventListener("click",()=>{
-    buildMenu.style.display = "none"
-    thank.style.display = "block"
-    setInterval(()=>{
-      buildMenu.style.display = "flex"
-      thank.style.display = "none"
-    },3000)
-})
-
   for (let index = 0; index < toppingAmountSelectors.length; index++) {
     const element = toppingAmountSelectors[index];
     const toppingElement = element.parentNode.parentNode.parentNode.childNodes.item(1);

@@ -1,5 +1,4 @@
 export const pizza_app = `
-<div id="thank"><h1>Thank You For Your Order</h1><h6>Click to close</h6></div>
 <div id="prebuiltMenu">
             <div id="pre1" class="prebuiltButton">1</div>
             <div id="pre2" class="prebuiltButton">2</div>
@@ -262,5 +261,4 @@ export const pizza_app = `
                     </div>
                 </div>
             </div>
-            <div id="orderButton">Order</div>
         </div>`;
