@@ -3,7 +3,7 @@ import { pizza } from "./pizzaOBJ.js";
 import { pizza_app } from "./pizza.js";
 
 
-document.getElementById("pizza").innerHTML = pizza_app;
+// document.getElementById("pizza").innerHTML = pizza_app;
 
 var prebuiltMenu = document.getElementById("prebuiltMenu");
 var buildMenu = document.getElementById("buildMenu");
@@ -35,8 +35,8 @@ var toppingsList = [
   "./ImagesPizza/PizzaSizes/Personal/Crust/CheesePersonal.webp",
 ];
 
-// buildMenu.style.display = "none";
-prebuiltMenu.style.display = "none";
+buildMenu.style.display = "none";
+// prebuiltMenu.style.display = "none";
 
 document.addEventListener("DOMContentLoaded", () => {
   for (let index = 0; index < toppingAmountSelectors.length; index++) {
