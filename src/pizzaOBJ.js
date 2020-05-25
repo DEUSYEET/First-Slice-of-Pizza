@@ -648,10 +648,11 @@ export const pizza = {
         }
     },
     'prebuilts': {
-        'vegan': ["./ImagesPizza/PizzaSizes/PizzaLarge/Crust/CrustLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Crust/MarinaraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Crust/CheeseLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/SpinachExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/MushroomExtraLarge.webp"],
-        'meat': ["./ImagesPizza/PizzaSizes/PizzaLarge/Crust/CrustLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Crust/MarinaraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Crust/CheeseLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/BaconExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/BeefExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/ChickenExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/HamExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/ItalianSausageExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/MeatballExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/PepperoniExtraLarge.webp", "./ImagesPizza/PizzaSizes/PizzaLarge/Toppings/PorkExtraLarge.webp"],
-        'italian': ["./ImagesPizza/PizzaSizes/PizzaMedium/Crust/CrustMedium.webp", "./ImagesPizza/PizzaSizes/PizzaMedium/Crust/MarinaraMedium.webp", "./ImagesPizza/PizzaSizes/PizzaMedium/Crust/CheeseMedium.webp", "./ImagesPizza/PizzaSizes/PizzaMedium/Toppings/ItalianSausageExtraMedium.webp", "./ImagesPizza/PizzaSizes/PizzaMedium/Toppings/MeatballRegularMedium.webp"],
-        'classic': ["./ImagesPizza/PizzaSizes/PizzaMedium/Crust/CrustMedium.webp", "./ImagesPizza/PizzaSizes/PizzaMedium/Crust/MarinaraMedium.webp", "./ImagesPizza/PizzaSizes/PizzaMedium/Crust/CheeseMedium.webp", "./ImagesPizza/PizzaSizes/PizzaMedium/Toppings/PepperoniRegularMedium.webp"],
-        'many': ["./ImagesPizza/PizzaSizes/PizzaXLarge/Crust/CrustXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Crust/MarinaraXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Crust/CheeseXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/BeefRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/ChickenRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/HamRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/ItalianSausageRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/MeatballRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/MushroomRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/PepperoniRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/SpinachRegularXLarge.webp", "./ImagesPizza/PizzaSizes/PizzaXLarge/Toppings/PorkRegularXLarge.webp"],
+        'vegan': ["Spinach","Mushroom"],
+        'meat': ["Pepperoni","ItalianSausage","Meatball","Pork","Beef","Chicken","Ham","Bacon"],
+        'italian': ["ItalianSausage","Meatball"],
+        'classic': ["Pepperoni"],
+        'many': ["Spinach","Pepperoni","ItalianSausage","Meatball","Pork","Beef","Chicken","Ham","Bacon","Mushroom"],
+        'self':[]
     }
 }

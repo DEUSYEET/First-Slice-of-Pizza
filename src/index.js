@@ -1,11 +1,15 @@
 import "./style.scss";
-import { pizza } from "./pizzaOBJ.js";
-import { pizza_app } from "./pizza.js";
+import {
+  pizza
+} from "./pizzaOBJ.js";
+import {
+  pizza_app
+} from "./pizza.js";
 
 
 // document.getElementById("pizza").innerHTML = pizza_app;
 
-var prebuiltMenu = document.getElementById("prebuiltMenu");
+var prebuiltMenuButtons = document.getElementsByClassName("prebuiltButton");
 var buildMenu = document.getElementById("buildMenu");
 var sizeButtons = document.getElementsByClassName("sizeButton");
 
@@ -35,8 +39,7 @@ var toppingsList = [
   "./ImagesPizza/PizzaSizes/Personal/Crust/CheesePersonal.webp",
 ];
 
-buildMenu.style.display = "none";
-// prebuiltMenu.style.display = "none";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   for (let index = 0; index < toppingAmountSelectors.length; index++) {
@@ -74,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .childNodes.item(1);
 
     element.addEventListener("change", () => {
-    //   console.log(element.getAttribute("value"));
+      //   console.log(element.getAttribute("value"));
       if (element.checked) {
         changeAmount(selectElement.options[selectElement.selectedIndex]);
         side = "full";
@@ -96,12 +99,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
+  //Prebuilts
+
+  for (let index = 0; index < prebuiltMenuButtons.length; index++) {
+    const element = prebuiltMenuButtons[index];
+    element.addEventListener("click", () => {
+      prebuild(element);
+    })
+  };
+
+
+
+
   drawCanvas();
 });
 
 const addTopping = (topping, button) => {
+
+  // console.log(button)
+
   var image = pizza.toppings[topping].images[size][side][amount];
-  console.log(button.classList)
+  // console.log(button.classList)
   var toppingClass = button.classList;
 
   if (toppingClass.contains("selected")) {
@@ -109,7 +128,7 @@ const addTopping = (topping, button) => {
     toppingClass.remove("selected");
     list.innerHTML = list.innerHTML.replace(`<br>${pizza.toppings[topping].name}`, "");
 
-    console.log(toppingCount)
+    // console.log(toppingCount)
 
     if (amount == "extra") {
       toppingCount -= 2;
@@ -123,8 +142,8 @@ const addTopping = (topping, button) => {
     toppingClass.add("selected");
     list.innerHTML = list.innerHTML.concat(`<br>${pizza.toppings[topping].name}`);
     toppingsList.push(image);
-    
-    console.log(toppingCount, amount)
+
+    // console.log(toppingCount, amount)
 
 
     if (amount == "extra") {
@@ -134,6 +153,7 @@ const addTopping = (topping, button) => {
     }
   }
   // console.log(toppingsList);
+  // console.log(list.innerHTML);
   changePrice();
   drawCanvas();
 };
@@ -147,13 +167,14 @@ const changeAmount = (element) => {
 };
 
 const changeSize = (button) => {
+
   var sizeVal = button.attributes.value.nodeValue;
 
   toppingsList.splice(0, toppingsList.length);
   list.innerHTML = "";
   size = sizeVal;
   toppingsList.unshift(pizza.crusts[size].cheese);
-  toppingsList.unshift(pizza.crusts[size].sauce);
+  // toppingsList.unshift(pizza.crusts[size].sauce);
   toppingsList.unshift(pizza.crusts[size].crust);
   document.getElementById("size").innerHTML = size;
   changePrice();
@@ -190,7 +211,7 @@ const changePrice = () => {
   price = pizza.crusts[size].price;
   var specialDeal = "";
   if (toppingCount >= 2 && toppingCount <= 4) {
-    price += toppingCount-1;
+    price += toppingCount - 1;
 
     specialDeal = "";
   } else if (toppingCount >= 5) {
@@ -201,3 +222,26 @@ const changePrice = () => {
   document.getElementById("total").innerHTML =
     "Price: $" + price + specialDeal;
 };
+
+
+const prebuild = (element) => {
+  var prebuiltOption = element.getAttribute("value");
+
+  buildMenu.style.display = "flex";
+  prebuiltMenu.style.display = "none";
+
+
+  var size = document.getElementById("Large")
+  size.click();
+
+  var i = 0;
+  pizza.prebuilts[prebuiltOption].forEach(element => {
+    i++;
+    // console.log(element);
+    var event = new Event('change');
+    setTimeout(() => {
+      document.getElementById(element).click()
+    }, (i * 25))
+  });
+
+}
