@@ -9,6 +9,11 @@ import {
 
 // document.getElementById("pizza").innerHTML = pizza_app;
 
+var backButton = document.getElementById("back");
+var orderButton = document.getElementById("order");
+var thankScreen = document.getElementById("thank");
+
+
 var prebuiltMenuButtons = document.getElementsByClassName("prebuiltButton");
 var buildMenu = document.getElementById("buildMenu");
 var sizeButtons = document.getElementsByClassName("sizeButton");
@@ -109,7 +114,23 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   };
 
+  //back
+  backButton.addEventListener('click', () => {
+    location.reload();
+  })
 
+  //order
+  orderButton.addEventListener('click', () => {
+    buildMenu.style.display = "none";
+    orderButton.style.display = "none";
+    backButton.style.display = "none";
+    thankScreen.style.display="block"
+  })
+
+  //thank
+  thankScreen.addEventListener('click', () => {
+    location.reload();
+  })
 
 
   drawCanvas();
@@ -201,8 +222,9 @@ const draw = (element) => {
     var y = c.height / 2 - img.height / 2;
     var width = img.width;
     var height = img.height;
-
-    ctx.drawImage(img, x, y, width, height);
+    setTimeout(() => {
+      ctx.drawImage(img, x, y, width, height);
+    }, 10)
   };
   document.getElementById("pizza").removeChild(img);
 };
@@ -228,6 +250,8 @@ const prebuild = (element) => {
   var prebuiltOption = element.getAttribute("value");
 
   buildMenu.style.display = "flex";
+  backButton.style.display = "block";
+  orderButton.style.display = "block"
   prebuiltMenu.style.display = "none";
 
 
